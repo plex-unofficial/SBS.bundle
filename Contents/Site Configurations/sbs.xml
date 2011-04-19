@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<site  site="http://player.sbs.com.au/.*"
+       plugin="http://player.sbs.com.au.*/standalone_video_player_application.swf"
+       initialState="playing"
+       version="1.0"
+       >
+
+ <crop x="40" y="182" width="530" height="298" />
+
+ <seekbar type="simple" smallStep="5" bigStep="10">
+  <start x="132" y="509" />
+  <end x="512" y="509" />
+  <played>
+   <condition>
+    <color op="brighter-than" rgb="808080" />
+   </condition>
+  </played>
+ </seekbar>
+ 
+ <state name="playing">
+  <event>
+   <condition>
+    <command name="pause" />
+   </condition>
+   <action>
+    <click x="62" y="503" />
+    <goto state="paused" />
+   </action>
+  </event>
+ </state>
+
+ <state name="paused">
+  <event>
+   <condition>
+    <command name="play" />
+   </condition>
+   <action>
+    <click x="62" y="503" />
+    <goto state="playing" />
+   </action>
+  </event>
+ </state>
+
+</site>
